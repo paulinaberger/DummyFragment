@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <fragment
+
+    <FrameLayout
+        android:id="@+id/frame_layout_container_activity_main_land"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:name="org.mdsd2016.android.dummyfragment.BlankFragment"
-        tools:layout="@layout/fragment_blank" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+ <LinearLayout
+     android:id="@+id/linear_layout_activity_main_land"
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="vertical"
+     android:background="@color/lightGreen">
+
+    <Button
+        android:text="@string/button_swap_fragment_text"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/btn_swap_fragments" />
+
+ </LinearLayout>
 
 </LinearLayout>

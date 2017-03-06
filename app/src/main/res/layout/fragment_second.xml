@@ -9,6 +9,17 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:text= "Hi" />
+
+    <TextView
+        android:text="Nothing to be Shown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_info_second_fragment"
+        android:layout_gravity="center"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textColorLink="@android:color/holo_blue_dark"
+        android:textAllCaps="false" />
 
 </FrameLayout>

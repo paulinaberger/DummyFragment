@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:name="org.mdsd2016.android.dummyfragment.BlankFragment"
+        android:name="org.mdsd2016.android.dummyfragment.FirstFragment"
         tools:layout="@layout/fragment_blank"/>
 
         -->
@@ -30,6 +30,7 @@
 
     <fragment
         tools:layout="@layout/fragment_second"
+        android:id="@+id/fragment_main_activity"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
