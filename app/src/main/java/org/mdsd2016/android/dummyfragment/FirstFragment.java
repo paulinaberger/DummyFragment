@@ -13,7 +13,7 @@ import android.widget.Button;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FirstFragment extends Fragment  { //plain Java. Means that we are using an import in the project which is above (in the imports)
+public class FirstFragment extends Fragment implements View.OnClickListener { //plain Java. Means that we are using an import in the project which is above (in the imports)
     //comes from the v4 support library. Means that fragments were added later.  Important because sometimes you instantiate fragments
     //but import is not Android.support. library. When you are trying to add libraries, even being called fragments it crashes.
     //problem with Fragments = at one pt. you might have runtme errors that are not well documented.
@@ -70,4 +70,11 @@ public class FirstFragment extends Fragment  { //plain Java. Means that we are u
 
         return rootView;
     }
+
+    @Override
+    public void onClick(View v) {
+        Log.i(FirstFragment.TAG," click ");
+        ((MainActivity) getActivity()).getRandomNumberFromFragment1();
+    }
 }
+

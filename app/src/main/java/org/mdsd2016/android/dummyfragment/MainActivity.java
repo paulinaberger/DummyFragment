@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //has to be placed
     private View mMainLayout; //defines tap action
     private boolean mTwoPane;
+    private double mRandomNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,8 +65,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View whichView) {
 
+        Log.i(MainActivity.TAG, "Clicked");
+
         if (whichView.getId() == R.id.linear_layout_activity_main) {
-            Log.i(MainActivity.TAG, "Clicked");
             Toast.makeText(this, "OMG THIS IS LIKE, CRAZY!", Toast.LENGTH_SHORT).show();
 
             //fragment manager one is support and one is non supported, the methods to call are usually different
@@ -93,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (isFirstFragment) {
                 //if it's present replace first with second
 
-                fragment = new SecondFragment();
+                fragment = new SecondFragment(this.mRandomNumber);
                 fragmentTag = "SecondFragmentLandscape";
                 color = R.color.yellow;
 
@@ -117,17 +119,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void getRandomNumberFromFragment1() { //we have to provide a botdy for the method, since it's an interface
 
-        double randomNumber = Math.random();
+        this.mRandomNumber  = Math.random();
 
-        Log.i(MainActivity.TAG, "Number from Fragment 1:" + randomNumber);
+        Log.i(MainActivity.TAG, "Number from Fragment 1:" + mRandomNumber);
         //  Fragment fragment = findViewById(R.id.);
+
+        if (this.mTwoPane) { //if I'm in portrait, then the fragment will exist
 
         FragmentManager fm = getSupportFragmentManager(); //bc we want to work with Fragments in runtime
         SecondFragment secondFragment = (SecondFragment) fm.findFragmentById(R.id.fragment_main_activity); //we had a findFragmentbyTag - but now it's by ID because ID relate to static Fragments
         //secondFragment is casted, just ilke buttons were casted.
 
-        secondFragment.updateTextView(randomNumber);
+    //    if (secondFragment != null) {
+            secondFragment.updateTextView(mRandomNumber);
 
-     }
+        }
+    }
 
 }
