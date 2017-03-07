@@ -115,12 +115,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void getRandomNumberFromFragment1() {
+    public void getRandomNumberFromFragment1() { //we have to provide a botdy for the method, since it's an interface
 
         double randomNumber = Math.random();
 
         Log.i(MainActivity.TAG, "Number from Fragment 1:" + randomNumber);
         //  Fragment fragment = findViewById(R.id.);
-    }
+
+        FragmentManager fm = getSupportFragmentManager(); //bc we want to work with Fragments in runtime
+        SecondFragment secondFragment = (SecondFragment) fm.findFragmentById(R.id.fragment_main_activity); //we had a findFragmentbyTag - but now it's by ID because ID relate to static Fragments
+        //secondFragment is casted, just ilke buttons were casted.
+
+        secondFragment.updateTextView(randomNumber);
+
+     }
 
 }

@@ -33,7 +33,7 @@ public class FirstFragment extends Fragment  { //plain Java. Means that we are u
     }
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(Context context) { //reference to all the resources that correspond to acivity or application
         super.onAttach(context);
         try {
             this.mInterfaceInstance = (ICom2Activity) context;
